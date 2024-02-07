@@ -4,3 +4,28 @@ This is an experiment to use Kiota to generate a Java SDK for the Github API.
 
 This is using the existing work from GitHub to https://github.blog/2024-01-03-our-move-to-generated-sdks[generate the SDK for .net and go].
 
+See full example in link:sample/demo.java[Demo.java]
+
+Example usage:
+
+[source,java]
+----
+    var webSession = WebClientSession
+            .create(WebClient.create(Vertx.vertx()));
+    
+    token(args).ifPresent(x -> webSession.addHeader("Authorization", "Bearer " + x));
+    
+    var github = new GitHubClient(new VertXRequestAdapter(webSession));
+    
+        try {
+        github.repositories().get().forEach(repo -> {
+            System.out.println("%s".formatted(repo.getName()));
+        });
+    } catch (BasicError err) {
+        System.out.println(err);
+        System.out.println("Error: %s Status: %s".formatted(err, err.getResponseStatusCode()));
+    }
+----
+
+
+
