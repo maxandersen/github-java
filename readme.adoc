@@ -1,0 +1,6 @@
+# Github Java Experiment
+
+This is an experiment to use Kiota to generate a Java SDK for the Github API.
+
+This is using the existing work from GitHub to https://github.blog/2024-01-03-our-move-to-generated-sdks[generate the SDK for .net and go].
+
