@@ -8,7 +8,7 @@
     <version>0.0.1</version>
     <properties>
         <kiota.libs.version>0.12.1</kiota.libs.version>
-        <kiota.community.version>0.0.14</kiota.community.version>
+        <kiota.community.version>0.0.15</kiota.community.version>
         <jakarta.annotation.version>2.1.1</jakarta.annotation.version>
     </properties>
     <dependencies>
@@ -86,6 +86,8 @@
             <namespace>com.github.api</namespace>
             <clientClass>GitHubClient</clientClass>
             <url>https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json</url>
+            <!-- Workaround for: https://github.com/microsoft/kiota/issues/4151 -->
+            <excludePath>/repos/{template_owner}/{template_repo}/generate</excludePath>
           </configuration>
         </plugin>
       </plugins>
